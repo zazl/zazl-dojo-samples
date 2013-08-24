@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AMD Multiple Require call via Zazl Optimizer</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@import "dojo/resources/dojo.css";
+		@import "dijit/themes/claro/claro.css";
+	</style>
+	<script type="text/javascript" src="loader/amd/zazl.js"></script>
+	<script type="text/javascript">
+		if (window.addEventListener) {
+			window.addEventListener("zazlIdle", function(evt) {
+	            console.log("Zazl is idle");
+			}, false);
+		}
+        require({
+        	directInject: true,
+            packages: [{name: 'dojo'}, {name: 'dijit'}, {name: 'dojox'}],
+            config: { "amdtest/Calendar": {myconfigval: "My Config Value"}}
+        }, 
+        ["amdtest/Calendar"], 
+        function() {
+            console.log("Calendar loaded");
+        });
+	</script>
+	<script type="text/javascript">
+        require(["dojo/dom", "dijit/ColorPalette","dojo/domReady!"],
+        function(dom, ColorPalette) {
+            console.log("ColorPalette loaded");
+            var colorPalette = new ColorPalette({}, dom.byId("colorPaletteNode"));
+            return colorPalette;
+        });
+	</script>
+	<script type="text/javascript">
+        require(["dojo/dom", "dijit/form/Button", "dojo/domReady!"],
+        function(dom, Button) {
+            console.log("Button loaded");
+        	var myButton = new Button({
+                label: "Click me!",
+                onClick: function(){
+                    dom.byId("result").innerHTML += "Thank you! ";
+                }
+            }, "buttonNode");        	
+            return myButton;
+        });
+	</script>
+</head>
+<body class="claro">
+<div id="calendarNode"></div>
+<div id="colorPaletteNode"></div>
+<div id="buttonNode"></div>
+<div id="result"></div>
+</body>
+</html>

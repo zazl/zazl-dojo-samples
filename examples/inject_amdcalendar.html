@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AMD Calendar Example via Zazl Optimizer</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@import "dojo/resources/dojo.css";
+		@import "dijit/themes/claro/claro.css";
+	</style>
+	<script type="text/javascript" src="loader/amd/zazl.js"></script>
+	<script type="text/javascript">
+        zazl({
+        	directInject: true,
+            packages: [{name: 'dojo'}, {name: 'dijit'}, {name: 'dojox'}],
+            config: { "amdtest/Calendar": {myconfigval: "My Config Value"}}
+        }, 
+        ["amdtest/Calendar"], 
+        function(calendar) {
+            console.log("done");
+        });
+	</script>
+</head>
+<body class="claro">
+<div id="calendarNode"></div>
+</body>
+</html>
