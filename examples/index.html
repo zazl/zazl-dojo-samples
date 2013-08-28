@@ -6,18 +6,29 @@
 	<link type="text/css" rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<div style="background-color: #B9F2FE"><a href="http://zazl.org"> <image src="zazl.png" width="70" height="70"><image></a></div>
-	<div style="font-family: Helvetica, sans-serif; font-size: 24px; font-weight: bold; margin-top: 5px; margin-bottom: 10px;">Zazl Optimizer Dojo Samples</div>
-	<div>All the samples use the Zazl AMD loader to load their modules.The Zazl backend component that performs all the dependency analysis and optimization is running on a Node.js based server. 
-	The Warmup samples first page load use the dojo loader (all modules are loaded individually. This first page load initiates the optimization on the server component. Subsequent page loads then use the Zazl loader to load optimized streams of javascript</div>
-	<p>The source code can be found <a href="https://github.com/zazl/zazl-dojo-samples">here</a></p>
+	<table style="width: 100%; border-spacing: 0px;">
+		<colgroup>
+			<col style="width: 80px" />
+		</colgroup>
+		<tbody style="background-color: #B9F2FE">
+		<tr>
+			<td>
+				<a style="float: left;" href="http://zazl.org"> <image src="zazl.png" width="70" height="70"><image></a>
+			</td>
+			<td>
+				<span style="font-family: Helvetica, sans-serif; font-size: 24px; font-weight: bold;">Dojo Samples</span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<p><a href="https://github.com/zazl/zazloptimizer">Zazl</a> is a Dynamic Javascript Optimizer that enables the loading of AMD modules and all their dependencies in a single response stream without depending on static build tools. It also leverages JavaScript compression tools such as Google Clousure, Uglify-js and Dojo Shrinksafe.</p>
+	<p>The samples use the Zazl AMD loader to load their modules.The Zazl backend component that performs all the dependency analysis and optimization is running on a Node.js based server.</p>
+	<p>The samples source code can be found <a href="https://github.com/zazl/zazl-dojo-samples">here</a></p>
 	<ul>
 		<li><a href="inject_amdcalendar.html">Calendar</a> - Loads a dijit/Calendar widget and all it dependencies</li>
 		<li><a href="inject_amddeclarative.html">Declarative</a> - Loads a set of dijit widgets that have been declared in markup</li>
 		<li><a href="inject_amdlazyload.html">Lazy Load</a> - Demonstrates how loading on demand works. A button click loads another widget and all its dependencies</li>
 		<li><a href="inject_amdmultirequire.html">Multiple Require calls</a> - Demonstrates multiple top level <b>require</b> calls</li>
-		<li><a href="inject_amdwarmup.html">Warmup</a> - Demonstrates using the Warmup function.</li>
-		<li><a href="inject_amdwarmup_multirequire.html">Warmup Multiple Require calls</a> - Demonstrate warmup with multiple <b>require</b> calls</li>
 	</ul>
 </body>
 </html>
